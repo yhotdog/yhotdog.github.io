@@ -71,7 +71,11 @@
     </div>
 
     <div id="ux" class="fold">
-        ux
+        <div class="gallery">
+            <div class="cimagine"></div>
+            <div class="fabu"></div>
+            <div class="zooz"></div>
+        </div>
     </div>
 
     <div id="consultation" class="fold">
@@ -127,9 +131,13 @@
     ******************************************/
 
     .fold, .fold .slick-track {
-        background-color: red;
+        height: 714px;
+    }
+
+    .fold {
         height: 714px;
         text-align: center;
+        margin-bottom: 45px; /* we need padding for the slick gallery's dots */
     }
 
     /******************************************
@@ -160,18 +168,18 @@
                    Design - Common
     ******************************************/
 
-    .fold .iphone, .fold .ipad, .fold .content {
+    #design .iphone, #design .ipad, #design .content {
         display: inline-block;
     }
 
-    .fold .iphone {
+    #design .iphone {
         height: 655px;
         width: 389px;
         margin-left: 10%;
         background-image: url("../res/Slices/iPhone.png");
     }
 
-    .fold .ipad {
+    #design .ipad {
         height: 760px;
         width: 940px;
         margin-left: 3%;
@@ -179,32 +187,32 @@
         background-image: url("../res/Slices/iPad.png");
     }
 
-    .fold .iphone::before, .fold .ipad::before {
+    #design .iphone::before, #design .ipad::before {
         content: '';
         display: block;
         position: relative;
     }
 
-    .fold .iphone::before {
+    #design .iphone::before {
         top: 88px;
         left: 67px;
         height: 446px;
         width: 255px;
     }
 
-    .fold .ipad::before {
+    #design .ipad::before {
         top: 77px;
         left: 77px;
         height: 591px;
         width: 786px;
     }
 
-    .fold .content {
+    #design .content {
         vertical-align: top;
         margin-top: 100px;
     }
 
-    .fold .info, .fold .info-minor {
+    #design .info, #design .info-minor {
         width: 300px;
         margin-top: 20px;
         text-align: left;
@@ -214,28 +222,44 @@
                  Design - Specifics
     ******************************************/
 
-    .nextdeadline {
+    #design .nextdeadline {
         background-image: url("../res/Slices/Design/NextDeadline/BG-NextDeadline.jpg");
     }
 
-    .nextdeadline .iphone::before {
+    #design .nextdeadline .iphone::before {
         background-image: url("../res/Slices/Design/NextDeadline/Movie-NextDeadline.gif");
     }
 
-    .nextdeadline .logo {
+    #design .nextdeadline .logo {
         content: url("../res/Slices/Design/NextDeadline/Logo-NextDeadline.png")
     }
 
-    .cimagine {
+    #design .cimagine {
         background-image: url("../res/Slices/Design/Cimagine/BG-Cimagine.jpg");
     }
 
-    .cimagine .ipad::before {
+    #design .cimagine .ipad::before {
         background-image: url("../res/Slices/Design/Cimagine/Movie-Cimagine.gif");
     }
 
-    .cimagine .logo {
+    #design .cimagine .logo {
         content: url("../res/Slices/Design/Cimagine/Logo-Cimagine.png");
+    }
+
+    /******************************************
+                        UX
+    ******************************************/
+
+    #ux .cimagine {
+        background-image: url("../res/Slices/UX/UX-Cimagine.jpg");
+    }
+
+    #ux .fabu {
+        background-image: url("../res/Slices/UX/UX-Fabu.jpg");
+    }
+
+    #ux .zooz {
+        background-image: url("../res/Slices/UX/UX-Zooz.jpg");
     }
 
     /******************************************

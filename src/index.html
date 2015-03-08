@@ -74,7 +74,14 @@
     </div>
 
     <div id="consultation" class="fold">
-        consultation
+        <div class="gallery">
+            <div>
+                tip 1
+            </div>
+            <div>
+                tip 2
+            </div>
+        </div>
     </div>
 
     <div id="liat" class="fold">
@@ -115,13 +122,42 @@
     }
 
     /******************************************
-                  Folds - Common
+                       Folds
     ******************************************/
 
-    .fold, .fold .gallery .slick-track > div {
+    .fold, .fold .slick-track > div {
         background-color: red;
         height: 714px;
+        margin: auto;
     }
+
+    /******************************************
+                  Gallery Controls
+    ******************************************/
+
+    .gallery-prev, .gallery-next {
+        position: absolute;
+        top: 50%;
+        line-height: 0;
+        cursor: pointer;
+        font-size: 40px;
+    }
+
+    .gallery-prev::before {
+        content: '<'
+    }
+
+    .gallery-next {
+        right: 0;
+    }
+
+    .gallery-next::before {
+        content: '>'
+    }
+
+    /******************************************
+                   Design - Common
+    ******************************************/
 
     .fold .iphone, .fold .ipad {
         display: block;
@@ -171,7 +207,7 @@
     }
 
     /******************************************
-                 Folds - Specifics
+                 Design - Specifics
     ******************************************/
 
     .nextdeadline {
@@ -199,27 +235,12 @@
     }
 
     /******************************************
-                  Gallery Controls
+                   Consultation
     ******************************************/
 
-    .gallery-prev, .gallery-next {
-        position: absolute;
-        top: 50%;
-        line-height: 0;
-        cursor: pointer;
-        font-size: 40px;
-    }
-
-    .gallery-prev::before {
-        content: '<'
-    }
-
-    .gallery-next {
-        right: 0;
-    }
-
-    .gallery-next::before {
-        content: '>'
+    #consultation .slick-track > div {
+        text-align: center;
+        line-height: 714px;
     }
 </style>
 

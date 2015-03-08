@@ -43,10 +43,27 @@
 <div class="work">
     <div id="design" class="fold">
         <div class="gallery">
-            <div class="nextdeadline">
-                <span class="iphone"/>
-            </div>
             <div class="cimagine">
+                <div class="content">
+                    <img class="logo"/>
+                </div>
+                <span class="ipad"/>
+            </div>
+            <div class="nextdeadline">
+                <div class="content">
+                    <img class="logo"/>
+                    <div class="info">
+                        All deadlines are important.
+                        But which one is important now?
+                        Put all your deadlines in one place
+                        and start looking at the big picture!
+                    </div>
+                    <div class="info-minor">
+                        This tool will help you manage your projects and
+                        give you an easy way to understand what's more
+                        important now.
+                    </div>
+                </div>
                 <span class="iphone"/>
             </div>
         </div>
@@ -98,7 +115,7 @@
     }
 
     /******************************************
-                       Folds
+                  Folds - Common
     ******************************************/
 
     .fold, .fold .gallery .slick-track > div {
@@ -106,22 +123,56 @@
         height: 714px;
     }
 
-    .iphone {
+    .fold .iphone, .fold .ipad {
         display: block;
+        float: right;
+    }
+
+    .fold .iphone {
         height: 655px;
         width: 389px;
         background-image: url("../res/Slices/iPhone.png");
     }
 
-    .iphone::before {
+    .fold .ipad {
+        height: 760px;
+        width: 940px;
+        background-image: url("../res/Slices/iPad.png");
+    }
+
+    .fold .iphone::before, .fold .ipad::before {
         content: '';
         display: block;
         position: relative;
+    }
+
+    .fold .iphone::before {
         top: 88px;
         left: 67px;
         height: 446px;
         width: 255px;
     }
+
+    .fold .ipad::before {
+        top: 77px;
+        left: 77px;
+        height: 591px;
+        width: 786px;
+    }
+
+    .fold .content {
+        margin-top: 100px;
+        float: left;
+    }
+
+    .fold .info, .fold .info-minor {
+        width: 300px;
+        margin-top: 20px;
+    }
+
+    /******************************************
+                 Folds - Specifics
+    ******************************************/
 
     .nextdeadline {
         background-image: url("../res/Slices/Design/NextDeadline/BG-NextDeadline.jpg");
@@ -131,19 +182,32 @@
         background-image: url("../res/Slices/Design/NextDeadline/Movie-NextDeadline.gif");
     }
 
+    .nextdeadline .logo {
+        content: url("../res/Slices/Design/NextDeadline/Logo-NextDeadline.png")
+    }
+
     .cimagine {
         background-image: url("../res/Slices/Design/Cimagine/BG-Cimagine.jpg");
     }
 
-    .cimagine .iphone::before {
+    .cimagine .ipad::before {
         background-image: url("../res/Slices/Design/Cimagine/Movie-Cimagine.gif");
     }
+
+    .cimagine .logo {
+        content: url("../res/Slices/Design/Cimagine/Logo-Cimagine.png");
+    }
+
+    /******************************************
+                  Gallery Controls
+    ******************************************/
 
     .gallery-prev, .gallery-next {
         position: absolute;
         top: 50%;
         line-height: 0;
         cursor: pointer;
+        font-size: 40px;
     }
 
     .gallery-prev::before {

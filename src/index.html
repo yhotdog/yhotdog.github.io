@@ -42,32 +42,12 @@
 
 <div class="work">
     <div id="design" class="fold">
-        design
         <div class="gallery">
-            <div>
-                slide1
-                <br/>
-                slide1
-                <br/>
-                slide1
+            <div class="nextdeadline">
+                <span class="iphone"/>
             </div>
-            <div>
-                slide2
-                slide1
-                <br/>
-                slide1
-                <br/>
-                slide1
-                <br/>
-            </div>
-            <div>
-                slide3
-                slide1
-                <br/>
-                slide1
-                <br/>
-                slide1
-                <br/>
+            <div class="cimagine">
+                <span class="iphone"/>
             </div>
         </div>
     </div>
@@ -86,11 +66,16 @@
 </div>
 
 <style type="text/css">
+
+    /******************************************
+                       Header
+    ******************************************/
     .header {
         position: fixed;
         top: 0;
         background-color: white;
         width: 100%;
+        z-index: 10000;
         visibility: hidden;
     }
 
@@ -112,9 +97,46 @@
         padding: 100px;
     }
 
-    .fold {
+    /******************************************
+                       Folds
+    ******************************************/
+
+    .fold, .fold .gallery .slick-track > div {
         background-color: red;
-        height: 800px;
+        height: 714px;
+    }
+
+    .iphone {
+        display: block;
+        height: 655px;
+        width: 389px;
+        background-image: url("../res/Slices/iPhone.png");
+    }
+
+    .iphone::before {
+        content: '';
+        display: block;
+        position: relative;
+        top: 88px;
+        left: 67px;
+        height: 446px;
+        width: 255px;
+    }
+
+    .nextdeadline {
+        background-image: url("../res/Slices/Design/NextDeadline/BG-NextDeadline.jpg");
+    }
+
+    .nextdeadline .iphone::before {
+        background-image: url("../res/Slices/Design/NextDeadline/Movie-NextDeadline.gif");
+    }
+
+    .cimagine {
+        background-image: url("../res/Slices/Design/Cimagine/BG-Cimagine.jpg");
+    }
+
+    .cimagine .iphone::before {
+        background-image: url("../res/Slices/Design/Cimagine/Movie-Cimagine.gif");
     }
 
     .gallery-prev, .gallery-next {

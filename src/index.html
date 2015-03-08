@@ -5,6 +5,17 @@
     <title></title>
 </head>
 <body>
+<div class="header">
+    <div class="content">
+        Hi! My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
+        I'm an interactive designer
+        doing these stuff: waking up,
+        brushing my teeth, <a href="#ux" class="fold-link">UX</a>, <a
+            href="#design" class="fold-link">design</a>,
+        <a href="#consultation" class="fold-link">Consultation</a> and sleeping.
+    </div>
+</div>
+
 <div class="intro">
     <div>
         Hi! My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
@@ -16,7 +27,8 @@
         doing these stuff: waking up,
     </div>
     <div>
-        brushing my teeth, <a href="#ux" class="fold-link">UX</a>, <a href="#design" class="fold-link">design</a>,
+        brushing my teeth, <a href="#ux" class="fold-link">UX</a>, <a
+            href="#design" class="fold-link">design</a>,
     </div>
     <div>
         <a href="#consultation" class="fold-link">Consultation</a> and sleeping.
@@ -26,7 +38,6 @@
         If you need more that that, scroll to see some of my works
     </div>
 </div>
-
 
 
 <div class="work">
@@ -48,6 +59,32 @@
 </div>
 
 <style type="text/css">
+    .header {
+        position: fixed;
+        top: 0;
+        background-color: white;
+        width: 100%;
+        visibility: hidden;
+    }
+
+    .header.visible {
+        visibility: visible;
+    }
+
+    .header .content {
+        opacity: 0;
+        transition: opacity;
+        transition-duration: 0.5s;
+    }
+
+    .header.visible .content {
+        opacity: 1;
+    }
+
+    .intro {
+        padding: 100px;
+    }
+
     .fold {
         background-color: red;
         height: 800px;
@@ -56,8 +93,9 @@
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
 <script type="text/javascript">
+    var body = $('body');
+
     function setUpScrollToFold() {
-        var body = $('body');
         $('.fold-link').click(function () {
             var href = $.attr(this, 'href');
             body.animate({
@@ -69,7 +107,20 @@
         });
     }
 
+    var introHeight = $('.intro').outerHeight();
+    var headerHeight = $('.header').outerHeight();
+    var header = $('.header');
+    function updateHeaderVisibility() {
+        var scrollTop = body.scrollTop();
+        header[scrollTop > introHeight - headerHeight ? 'addClass' : 'removeClass']('visible');
+    }
+    function setUpHeader() {
+        window.onscroll = updateHeaderVisibility;
+    }
+
     setUpScrollToFold();
+    setUpHeader();
+    updateHeaderVisibility();
 </script>
 </body>
 </html>

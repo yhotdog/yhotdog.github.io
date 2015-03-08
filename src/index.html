@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head lang="en">
+    <meta charset="UTF-8">
+    <title></title>
+</head>
+<body>
+<div>
+    Hi! My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
+</div>
+<div>
+    I'm an interactive designer
+</div>
+<div>
+    doing these stuff: waking up,
+</div>
+<div>
+    brushing my teeth, <a href="#ux" class="fold-link">UX</a>, <a href="#design" class="fold-link">design</a>,
+</div>
+<div>
+    <a href="#consultation" class="fold-link">Consultation</a> and sleeping.
+</div>
+
+<div id="design" class="fold">
+    design
+</div>
+
+<div id="ux" class="fold">
+    ux
+</div>
+
+<div id="consultation" class="fold">
+    consultation
+</div>
+
+<div id="liat" class="fold">
+    liat
+</div>
+
+<style type="text/css">
+    .fold {
+        background-color: red;
+        height: 800px;
+    }
+</style>
+
+<script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+<script type="text/javascript">
+    var body = $('body');
+    $('.fold-link').click(function() {
+        var href = $.attr(this, 'href');
+        body.animate({
+            scrollTop: $(href).offset().top
+        }, 500, function () {
+            window.location.hash = href;
+        });
+        return false;
+    });
+</script>
+</body>
+</html>

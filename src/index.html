@@ -43,6 +43,33 @@
 <div class="work">
     <div id="design" class="fold">
         design
+        <div class="gallery">
+            <div>
+                slide1
+                <br/>
+                slide1
+                <br/>
+                slide1
+            </div>
+            <div>
+                slide2
+                slide1
+                <br/>
+                slide1
+                <br/>
+                slide1
+                <br/>
+            </div>
+            <div>
+                slide3
+                slide1
+                <br/>
+                slide1
+                <br/>
+                slide1
+                <br/>
+            </div>
+        </div>
     </div>
 
     <div id="ux" class="fold">
@@ -89,9 +116,39 @@
         background-color: red;
         height: 800px;
     }
+
+    .gallery-prev, .gallery-next {
+        position: absolute;
+        top: 50%;
+        line-height: 0;
+        cursor: pointer;
+    }
+
+    .gallery-prev::before {
+        content: '<'
+    }
+
+    .gallery-next {
+        right: 0;
+    }
+
+    .gallery-next::before {
+        content: '>'
+    }
 </style>
 
 <script src="http://ajax.googleapis.com/ajax/libs/jquery/1.11.2/jquery.min.js"></script>
+
+
+<script type="text/javascript"
+        src="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.min.js"></script>
+<link rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick.css"/>
+<link rel="stylesheet"
+      type="text/css"
+      href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css"/>
+
 <script type="text/javascript">
     var body = $('body');
 
@@ -118,9 +175,20 @@
         window.onscroll = updateHeaderVisibility;
     }
 
-    setUpScrollToFold();
-    setUpHeader();
-    updateHeaderVisibility();
+    $(document).ready(function () {
+        setUpScrollToFold();
+        setUpHeader();
+        updateHeaderVisibility();
+        $('.gallery').slick({
+            prevArrow: '<a class="gallery-prev" />',
+            nextArrow: '<a class="gallery-next" />',
+            dots: true
+
+            // Interesting settings to experiment with:
+//            mobileFirst: true,
+//            swipeToSlide: true
+        });
+    });
 </script>
 </body>
 </html>

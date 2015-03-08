@@ -52,6 +52,7 @@
             <div class="nextdeadline">
                 <div class="content">
                     <img class="logo"/>
+
                     <div class="info">
                         All deadlines are important.
                         But which one is important now?
@@ -125,10 +126,10 @@
                        Folds
     ******************************************/
 
-    .fold, .fold .slick-track > div {
+    .fold, .fold .slick-track {
         background-color: red;
         height: 714px;
-        margin: auto;
+        text-align: center;
     }
 
     /******************************************
@@ -159,20 +160,22 @@
                    Design - Common
     ******************************************/
 
-    .fold .iphone, .fold .ipad {
-        display: block;
-        float: right;
+    .fold .iphone, .fold .ipad, .fold .content {
+        display: inline-block;
     }
 
     .fold .iphone {
         height: 655px;
         width: 389px;
+        margin-left: 10%;
         background-image: url("../res/Slices/iPhone.png");
     }
 
     .fold .ipad {
         height: 760px;
         width: 940px;
+        margin-left: 3%;
+        right: 50px;
         background-image: url("../res/Slices/iPad.png");
     }
 
@@ -197,13 +200,14 @@
     }
 
     .fold .content {
+        vertical-align: top;
         margin-top: 100px;
-        float: left;
     }
 
     .fold .info, .fold .info-minor {
         width: 300px;
         margin-top: 20px;
+        text-align: left;
     }
 
     /******************************************
@@ -239,7 +243,6 @@
     ******************************************/
 
     #consultation .slick-track > div {
-        text-align: center;
         line-height: 714px;
     }
 </style>

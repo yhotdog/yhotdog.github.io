@@ -38,7 +38,7 @@
     </div>
 
     <div class="more">
-        If you need more that that, scroll to see some of my works
+        If you need more than that, scroll to see some of my works
     </div>
 </div>
 
@@ -106,9 +106,9 @@
             </p>
 
             <p>
-                But most importent - I’m a
+                But most important - I’m a
                 fun person to work with!
-                Have any intersrting idea? I’ll
+                Have any interesting idea? I’ll
                 be happy to hear about it (but
                 don’t forget the coffee…).
             </p>
@@ -129,7 +129,34 @@
                 <img class="instagram"/>
             </a>
         </div>
-        <img class="liat-img"/>
+        <span class="liat-img-container">
+            <img class="liat-img"/>
+            <a href="https://www.linkedin.com/in/yoelzeldes" class="yoel-link">
+                <div class="yoel-tooltip">
+                    Hi!
+                    <br/>
+                    I'm Yoel - the creator of this site.
+                    <br/>
+                    Feel free to click me
+                </div>
+            </a>
+            <a href="#" class="liat-link">
+                <div class="liat-tooltip">
+                    Hi!
+                    <br/>
+                    I'm Liat
+                </div>
+            </a>
+            <a href="#" class="elad-link">
+                <div class="elad-tooltip">
+                    Hi!
+                    <br/>
+                    I'm Elad
+                    <br/>
+                    I'm responsible for these two
+                </div>
+            </a>
+        </span>
     </div>
 </div>
 
@@ -197,7 +224,7 @@
 
     .header.visible {
         visibility: visible;
-        box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
+        box-shadow: 0 0 4px rgba(0, 0, 0, .14), 0 4px 8px rgba(0, 0, 0, .28);
     }
 
     .header .content {
@@ -425,6 +452,58 @@
         width: calc(100% - 300px);
         content: url("../res/Slices/liat.jpg");
         object-fit: cover
+    }
+
+    #liat .liat-img-container {
+        position: relative;
+    }
+
+    #liat .liat-img-container .yoel-link, #liat .liat-img-container .liat-link, #liat .liat-img-container .elad-link {
+        position: absolute;
+    }
+
+    #liat .liat-img-container .yoel-link {
+        left: 170px;
+        top: 420px;
+        width: 160px;
+        height: 160px;
+    }
+
+    #liat .liat-img-container .liat-link {
+        left: 430px;
+        top: 360px;
+        width: 140px;
+        height: 160px;
+    }
+
+    #liat .liat-img-container .elad-link {
+        left: 700px;
+        top: 0;
+        width: 160px;
+        height: 160px;
+    }
+
+    #liat .liat-img-container .yoel-link .yoel-tooltip, #liat .liat-img-container .liat-tooltip, #liat .liat-img-container .elad-tooltip {
+        transition: opacity;
+        background-color: rgba(255, 255, 255, 0.3);
+        border-radius: 10px;
+        padding: 10px;
+        transition-duration: 0.5s;
+        opacity: 0;
+    }
+
+    #liat .liat-img-container .yoel-link:hover .yoel-tooltip, #liat .liat-img-container .liat-link:hover .liat-tooltip, #liat .liat-img-container .elad-link:hover .elad-tooltip {
+        opacity: 1;
+    }
+
+    #liat .liat-img-container .yoel-tooltip {
+        margin-top: 15px;
+    }
+
+    #liat .liat-img-container .liat-tooltip {
+        margin-top: 35px;
+        padding-top: 25px;
+        padding-bottom: 25px;
     }
 
     #liat a {

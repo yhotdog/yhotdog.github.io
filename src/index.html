@@ -17,24 +17,27 @@
 </div>
 
 <div class="intro">
-    <div>
-        Hi! My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
-    </div>
-    <div>
-        I'm an interactive designer
-    </div>
-    <div>
-        doing these stuff: waking up,
-    </div>
-    <div>
-        brushing my teeth, <a href="#ux" class="fold-link">UX</a>, <a
-            href="#design" class="fold-link">design</a>,
-    </div>
-    <div>
-        <a href="#consultation" class="fold-link">Consultation</a> and sleeping.
+    <div class="info">
+        <div>
+            Hi! My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
+        </div>
+        <div>
+            I'm an interactive designer
+        </div>
+        <div>
+            doing these stuff: waking up,
+        </div>
+        <div>
+            brushing my teeth, <a href="#ux" class="fold-link">UX</a>, <a
+                href="#design" class="fold-link">design</a>,
+        </div>
+        <div>
+            <a href="#consultation" class="fold-link">Consultation</a> and
+            sleeping.
+        </div>
     </div>
 
-    <div>
+    <div class="more">
         If you need more that that, scroll to see some of my works
     </div>
 </div>
@@ -91,9 +94,9 @@
 
     <div id="liat" class="fold">
         <div class="content">
-            <h3>
-                And that’s me!
-            </h3>
+            <p class="title">
+                And that's me!
+            </p>
 
             <p>
                 Graduated from the Visual
@@ -132,8 +135,43 @@
 
 <style type="text/css">
 
+    @font-face {
+        font-family: roboto-light;
+        src: url("../res/font/roboto/roboto-light.ttf");
+    }
+
+    @font-face {
+        font-family: roboto-medium;
+        src: url("../res/font/roboto/roboto-medium.ttf");
+    }
+
+    @font-face {
+        font-family: roboto-bold;
+        src: url("../res/font/roboto/roboto-bold.ttf");
+    }
+
     body {
         margin: 0;
+        font-family: roboto-light;
+        font-size: 20px;
+    }
+
+    a {
+        font-family: roboto-bold;
+        text-decoration: none;
+    }
+
+    a, a:visited {
+        color: black;
+    }
+
+    a:hover {
+        color: #f5a623;
+        outline: none;
+    }
+
+    a:active {
+        color: #ed5656;
     }
 
     .work {
@@ -150,10 +188,16 @@
         width: 100%;
         z-index: 10000;
         visibility: hidden;
+        text-align: center;
+        padding: 10px;
+        box-shadow: 0;
+        transition: box-shadow;
+        transition-duration: 0.5s;
     }
 
     .header.visible {
         visibility: visible;
+        box-shadow: 0 0 4px rgba(0,0,0,.14),0 4px 8px rgba(0,0,0,.28);
     }
 
     .header .content {
@@ -168,6 +212,15 @@
 
     .intro {
         padding: 100px;
+    }
+
+    .intro .info {
+        font-size: 55px;
+        padding-bottom: 170px;
+    }
+
+    .intro .more {
+        text-align: center;
     }
 
     /******************************************
@@ -261,8 +314,17 @@
 
     #design .info, #design .info-minor {
         width: 300px;
-        margin-top: 20px;
+        margin-top: 30px;
         text-align: left;
+        color: white;
+    }
+
+    #design .info {
+        font-family: roboto-medium;
+    }
+
+    #design .info-minor {
+        font-size: 15px;
     }
 
     /******************************************
@@ -313,6 +375,13 @@
                    Consultation
     ******************************************/
 
+    #consultation {
+        background-color: #e0575c;
+        color: white;
+        font-family: roboto-medium;
+        font-size: 30px;
+    }
+
     #consultation .slick-track > div {
         line-height: 714px;
     }
@@ -324,6 +393,7 @@
     #liat {
         font-size: 0; /* or otherwise there will be a space between content and liat-img */
     }
+
     #liat * {
         font-size: initial;
     }
@@ -335,10 +405,19 @@
 
     #liat .content {
         height: 100%;;
-        width: 300px;
+        width: calc(300px - 50px); /* minus padding */
         text-align: left;
         background-color: #592c0c;
+        padding: 0 25px;
+    }
+
+    #liat .content, #liat a:not(:hover):not(:active) {
         color: white;
+    }
+
+    #liat .content .title {
+        font-family: roboto-medium;
+        font-size: 30px;
     }
 
     #liat .liat-img {
@@ -356,6 +435,19 @@
         height: 40px;
         width: 40px;
         border-radius: 20px;
+    }
+
+    #liat .content img {
+        margin-top: 20px;
+        margin-right: 10px;
+    }
+
+    #liat .content a:hover {
+        opacity: 0.7;
+    }
+
+    #liat .content a:active {
+        opacity: 0.5;
     }
 
     #liat .facebook {

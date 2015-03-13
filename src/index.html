@@ -588,12 +588,12 @@
         });
     }
 
-    var introHeight = $('.intro').outerHeight();
-    var headerHeight = $('.header').outerHeight();
+    var intro = $('.intro');
+    var header = $('.header');
     var header = $('.header');
     function updateHeaderVisibility() {
         var scrollTop = body.scrollTop();
-        header[scrollTop > introHeight - headerHeight ? 'addClass' : 'removeClass']('visible');
+        header[scrollTop > intro.outerHeight() - header.outerHeight() ? 'addClass' : 'removeClass']('visible');
     }
     function setUpHeader() {
         window.onscroll = updateHeaderVisibility;

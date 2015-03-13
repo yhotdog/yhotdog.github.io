@@ -46,13 +46,7 @@
 <div class="work">
     <div id="design" class="fold">
         <div class="gallery">
-            <div class="cimagine">
-                <div class="content">
-                    <img class="logo"/>
-                </div>
-                <span class="ipad"/>
-            </div>
-            <div class="nextdeadline">
+            <div class="nextdeadline iphone">
                 <div class="content">
                     <img class="logo"/>
 
@@ -68,7 +62,19 @@
                         important now.
                     </div>
                 </div>
-                <span class="iphone"/>
+                <div class="device">
+                    <img class="frame"/>
+                    <img class="screen"/>
+                </div>
+            </div>
+            <div class="cimagine ipad">
+                <div class="content">
+                    <img class="logo"/>
+                </div>
+                <div class="device">
+                    <img class="frame"/>
+                    <img class="screen"/>
+                </div>
             </div>
         </div>
     </div>
@@ -311,48 +317,47 @@
                    Design - Common
     ******************************************/
 
-    #design .iphone, #design .ipad, #design .content {
-        display: inline-block;
-    }
-
-    #design .iphone {
-        height: 655px;
-        width: 389px;
-        margin-left: 10%;
-        background-image: url("../res/Slices/iPhone.png");
-    }
-
-    #design .ipad {
-        height: 760px;
-        width: 940px;
-        margin-left: 3%;
-        right: 50px;
-        background-image: url("../res/Slices/iPad.png");
-    }
-
-    #design .iphone::before, #design .ipad::before {
-        content: '';
-        display: block;
+    #design .device, #design .content {
         position: relative;
+        display: inline-block;
+        margin-top: 35px;
     }
 
-    #design .iphone::before {
-        top: 88px;
-        left: 67px;
-        height: 446px;
-        width: 255px;
+    #design .ipad .frame {
+        content: url("../res/Slices/iPad.png");
+        background-size: contain;
+        height: 650px;
     }
 
-    #design .ipad::before {
-        top: 77px;
-        left: 77px;
-        height: 591px;
-        width: 786px;
+    #design .ipad .screen {
+        background-size: contain;
+        height: calc(650px / 1.285); /* based on the height of ".ipad .frame" */
+        position: relative;
+        left: 66px;
+        top: -584px;
+    }
+
+    #design .iphone .frame {
+        content: url("../res/Slices/iPhone.png");
+        background-size: contain;
+        height: 650px;
+    }
+
+    #design .iphone .screen {
+        background-size: contain;
+        height: calc(650px / 1.474); /* based on the height of ".iphone .frame" */
+        position: relative;
+        left: 69px;
+        top: -562px;
     }
 
     #design .content {
         vertical-align: top;
-        margin-top: 100px;
+        margin-right: 100px;
+    }
+
+    #design .iphone .content {
+        padding-top: 100px;
     }
 
     #design .info, #design .info-minor {
@@ -378,8 +383,8 @@
         background-image: url("../res/Slices/Design/NextDeadline/BG-NextDeadline.jpg");
     }
 
-    #design .nextdeadline .iphone::before {
-        background-image: url("../res/Slices/Design/NextDeadline/Movie-NextDeadline.gif");
+    #design .nextdeadline .screen {
+        content: url("../res/Slices/Design/NextDeadline/Movie-NextDeadline.gif");
     }
 
     #design .nextdeadline .logo {
@@ -390,8 +395,8 @@
         background-image: url("../res/Slices/Design/Cimagine/BG-Cimagine.jpg");
     }
 
-    #design .cimagine .ipad::before {
-        background-image: url("../res/Slices/Design/Cimagine/Movie-Cimagine.gif");
+    #design .cimagine .screen {
+        content: url("../res/Slices/Design/Cimagine/Movie-Cimagine.gif");
     }
 
     #design .cimagine .logo {

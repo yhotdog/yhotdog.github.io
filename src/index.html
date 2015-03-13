@@ -280,15 +280,31 @@
     }
 
     .gallery-prev::before {
-        content: '<'
+        content: url("../res/Slices/Slider/Prev-Normal.png")
+    }
+
+    .gallery-prev:hover::before {
+        content: url("../res/Slices/Slider/Prev-Hover.png")
+    }
+
+    .gallery-prev:active::before {
+        content: url("../res/Slices/Slider/Prev-Press.png")
+    }
+
+    .gallery-next::before {
+        content: url("../res/Slices/Slider/Next-Normal.png")
+    }
+
+    .gallery-next:hover::before {
+        content: url("../res/Slices/Slider/Next-Hover.png")
+    }
+
+    .gallery-next:active::before {
+        content: url("../res/Slices/Slider/Next-Press.png")
     }
 
     .gallery-next {
         right: 0;
-    }
-
-    .gallery-next::before {
-        content: '>'
     }
 
     /******************************************

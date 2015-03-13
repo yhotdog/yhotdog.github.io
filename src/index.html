@@ -46,6 +46,15 @@
 <div class="work">
     <div id="design" class="fold">
         <div class="gallery">
+            <div class="cimagine ipad">
+                <div class="content">
+                    <img class="logo"/>
+                </div>
+                <div class="device">
+                    <img class="frame"/>
+                    <img class="screen"/>
+                </div>
+            </div>
             <div class="nextdeadline iphone">
                 <div class="content">
                     <img class="logo"/>
@@ -61,15 +70,6 @@
                         give you an easy way to understand what's more
                         important now.
                     </div>
-                </div>
-                <div class="device">
-                    <img class="frame"/>
-                    <img class="screen"/>
-                </div>
-            </div>
-            <div class="cimagine ipad">
-                <div class="content">
-                    <img class="logo"/>
                 </div>
                 <div class="device">
                     <img class="frame"/>
@@ -333,8 +333,27 @@
         background-size: contain;
         height: calc(650px / 1.285); /* based on the height of ".ipad .frame" */
         position: relative;
-        left: 66px;
-        top: -584px;
+        transform: translateY(-115.5%) translateX(9.5%);
+    }
+
+    @media screen and (max-width: 1225px) {
+        #design .ipad .frame {
+            height: 450px;
+        }
+
+        #design .ipad .screen {
+            height: calc(450px / 1.285); /* based on the height of ".ipad .frame" */
+        }
+    }
+
+    @media screen and (max-width: 975px) {
+        #design .ipad .frame {
+            height: 350px;
+        }
+
+        #design .ipad .screen {
+            height: calc(350px / 1.285); /* based on the height of ".ipad .frame" */
+        }
     }
 
     #design .iphone .frame {
@@ -347,8 +366,7 @@
         background-size: contain;
         height: calc(650px / 1.474); /* based on the height of ".iphone .frame" */
         position: relative;
-        left: 69px;
-        top: -562px;
+        transform: translateY(-127.5%) translateX(28%);
     }
 
     #design .content {

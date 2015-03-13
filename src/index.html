@@ -575,25 +575,24 @@
 
 <script type="text/javascript">
     var body = $('body');
+    var intro = $('.intro');
+    var header = $('.header');
+    var header = $('.header');
 
     function setUpScrollToFold() {
         $('.fold-link').click(function () {
             var href = $.attr(this, 'href');
             body.animate({
-                scrollTop: $(href).offset().top
-            }, 500, function () {
-                window.location.hash = href;
-            });
+                scrollTop: $(href).offset().top - header.outerHeight()
+            }, 500);
             return false;
         });
     }
 
-    var intro = $('.intro');
-    var header = $('.header');
-    var header = $('.header');
     function updateHeaderVisibility() {
+        var confidence = 1; // this confidence is good when the user clicks on the link of the first fold, and we don't want the header to disappear
         var scrollTop = body.scrollTop();
-        header[scrollTop > intro.outerHeight() - header.outerHeight() ? 'addClass' : 'removeClass']('visible');
+        header[scrollTop > intro.outerHeight() - header.outerHeight() - confidence ? 'addClass' : 'removeClass']('visible');
     }
     function setUpHeader() {
         window.onscroll = updateHeaderVisibility;

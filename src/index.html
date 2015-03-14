@@ -342,6 +342,10 @@
                   Gallery Controls
     ******************************************/
 
+    .gallery:not(.ready) {
+        visibility: hidden;
+    }
+
     .gallery-prev, .gallery-next {
         position: absolute;
         top: 50%;
@@ -749,7 +753,11 @@
         setUpScrollToFold();
         setUpHeader();
         updateHeaderVisibility();
-        $('.gallery').slick({
+        var galleries = $('.gallery');
+        galleries.on('init', function () {
+            galleries.addClass('ready');
+        });
+        galleries.slick({
             prevArrow: '<a class="gallery-prev" />',
             nextArrow: '<a class="gallery-next" />',
             dots: true

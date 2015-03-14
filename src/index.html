@@ -202,24 +202,24 @@
         </div>
         <div class="liat-img-container">
             <img class="liat-img"/>
-            <a href="https://www.linkedin.com/in/yoelzeldes" class="yoel-link">
-                <div class="yoel-tooltip">
+            <a href="https://www.linkedin.com/in/yoelzeldes" class="about yoel">
+                <div class="tooltip">
                     Hi!
                     <br/>
                     I'm Yoel - the creator of this site.
                     <br/>
-                    Feel free to click me
+                    Feel free to click on me
                 </div>
             </a>
-            <a href="#" class="liat-link">
-                <div class="liat-tooltip">
+            <a class="about liat">
+                <div class="tooltip">
                     Hi!
                     <br/>
                     I'm Liat
                 </div>
             </a>
-            <a href="#" class="elad-link">
-                <div class="elad-tooltip">
+            <a class="about elad">
+                <div class="tooltip">
                     Hi!
                     <br/>
                     I'm Elad
@@ -610,38 +610,46 @@
         height: 100%;
     }
 
-    #liat .liat-img-container .yoel-link, #liat .liat-img-container .liat-link, #liat .liat-img-container .elad-link {
-        position: absolute;
-    }
-
     @media screen and (max-width: 900px) {
-        #liat .liat-img-container .yoel-link, #liat .liat-img-container .liat-link, #liat .liat-img-container .elad-link {
+        #liat .liat-img-container .about {
             visibility: hidden;
         }
     }
 
-    #liat .liat-img-container .yoel-link {
+    #liat .liat-img-container .about {
+        position: absolute;
+    }
+
+    #liat .liat-img-container .about:not([href]) {
+        cursor: default;
+    }
+
+    #liat .liat-img-container .about:not([href]):active {
+        color: #f5a623;
+    }
+
+    #liat .liat-img-container .yoel {
         left: 33%;
         top: 420px;
         width: 160px;
         height: 160px;
     }
 
-    #liat .liat-img-container .liat-link {
+    #liat .liat-img-container .liat {
         left: 50%;
         top: 360px;
         width: 140px;
         height: 160px;
     }
 
-    #liat .liat-img-container .elad-link {
+    #liat .liat-img-container .elad {
         left: 70%;
         top: 0;
         width: 160px;
         height: 160px;
     }
 
-    #liat .liat-img-container .yoel-link .yoel-tooltip, #liat .liat-img-container .liat-tooltip, #liat .liat-img-container .elad-tooltip {
+    #liat .liat-img-container .tooltip {
         transition: opacity;
         background-color: rgba(255, 255, 255, 0.3);
         border-radius: 10px;
@@ -650,15 +658,15 @@
         opacity: 0;
     }
 
-    #liat .liat-img-container .yoel-link:hover .yoel-tooltip, #liat .liat-img-container .liat-link:hover .liat-tooltip, #liat .liat-img-container .elad-link:hover .elad-tooltip {
+    #liat .liat-img-container .about:hover .tooltip {
         opacity: 1;
     }
 
-    #liat .liat-img-container .yoel-tooltip {
+    #liat .liat-img-container .yoel .tooltip {
         margin-top: 15px;
     }
 
-    #liat .liat-img-container .liat-tooltip {
+    #liat .liat-img-container .liat .tooltip {
         margin-top: 35px;
         padding-top: 25px;
         padding-bottom: 25px;

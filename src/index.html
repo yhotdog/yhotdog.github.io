@@ -56,6 +56,7 @@
                         Put all your deadlines in one place
                         and start looking at the big picture!
                     </p>
+
                     <p class="info-minor">
                         This tool will help you manage your projects and
                         give you an easy way to understand what's more
@@ -110,6 +111,7 @@
                         Put all your deadlines in one place
                         and start looking at the big picture!
                     </p>
+
                     <p class="info-minor">
                         This tool will help you manage your projects and
                         give you an easy way to understand what's more
@@ -198,7 +200,7 @@
                 <img class="instagram"/>
             </a>
         </div>
-        <span class="liat-img-container">
+        <div class="liat-img-container">
             <img class="liat-img"/>
             <a href="https://www.linkedin.com/in/yoelzeldes" class="yoel-link">
                 <div class="yoel-tooltip">
@@ -225,7 +227,7 @@
                     I'm responsible for these two
                 </div>
             </a>
-        </span>
+        </div>
     </div>
 </div>
 
@@ -566,6 +568,7 @@
 
     #liat {
         font-size: 0; /* or otherwise there will be a space between content and liat-img */
+        position: relative;
     }
 
     #liat * {
@@ -596,35 +599,43 @@
 
     #liat .liat-img {
         height: 100%;
-        width: calc(100% - 300px);
+        width: 100%;
         content: url("../res/Slices/liat.jpg");
         object-fit: cover
     }
 
     #liat .liat-img-container {
-        position: relative;
+        display: inline-block;
+        width: calc(100% - 300px);
+        height: 100%;
     }
 
     #liat .liat-img-container .yoel-link, #liat .liat-img-container .liat-link, #liat .liat-img-container .elad-link {
         position: absolute;
     }
 
+    @media screen and (max-width: 900px) {
+        #liat .liat-img-container .yoel-link, #liat .liat-img-container .liat-link, #liat .liat-img-container .elad-link {
+            visibility: hidden;
+        }
+    }
+
     #liat .liat-img-container .yoel-link {
-        left: 170px;
+        left: 33%;
         top: 420px;
         width: 160px;
         height: 160px;
     }
 
     #liat .liat-img-container .liat-link {
-        left: 430px;
+        left: 50%;
         top: 360px;
         width: 140px;
         height: 160px;
     }
 
     #liat .liat-img-container .elad-link {
-        left: 700px;
+        left: 70%;
         top: 0;
         width: 160px;
         height: 160px;

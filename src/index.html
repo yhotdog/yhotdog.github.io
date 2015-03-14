@@ -46,9 +46,54 @@
 <div class="work">
     <div id="design" class="fold">
         <div class="gallery">
-            <div class="cimagine ipad">
+            <div class="fabu iphone">
                 <div class="content">
                     <img class="logo"/>
+
+                    <p class="info">
+                        All deadlines are important.
+                        But which one is important now?
+                        Put all your deadlines in one place
+                        and start looking at the big picture!
+                    </p>
+                    <p class="info-minor">
+                        This tool will help you manage your projects and
+                        give you an easy way to understand what's more
+                        important now.
+                    </p>
+                </div>
+                <div class="device">
+                    <img class="frame"/>
+                    <img class="screen"/>
+                </div>
+            </div>
+            <div class="sayso iphone">
+                <div class="content dark">
+                    <img class="logo"/>
+
+                    <p class="info">
+                        All deadlines are important.
+                        But which one is important now?
+                        Put all your deadlines in one place
+                        and start looking at the big picture!
+                    </p>
+                </div>
+                <div class="device">
+                    <img class="frame"/>
+                    <img class="screen"/>
+                </div>
+            </div>
+            <div class="frank iphone">
+                <div class="content">
+                    <img class="logo"/>
+
+                    <p class="info">
+                        Frank is a fun, anonymous mobile
+                        app that lets you know what your
+                        friends really think of you, and even
+                        offers tips on how to improve your
+                        social life.
+                    </p>
                 </div>
                 <div class="device">
                     <img class="frame"/>
@@ -59,17 +104,35 @@
                 <div class="content">
                     <img class="logo"/>
 
-                    <div class="info">
+                    <p class="info">
                         All deadlines are important.
                         But which one is important now?
                         Put all your deadlines in one place
                         and start looking at the big picture!
-                    </div>
-                    <div class="info-minor">
+                    </p>
+                    <p class="info-minor">
                         This tool will help you manage your projects and
                         give you an easy way to understand what's more
                         important now.
-                    </div>
+                    </p>
+                </div>
+                <div class="device">
+                    <img class="frame"/>
+                    <img class="screen"/>
+                </div>
+            </div>
+            <div class="zooz ipad">
+                <div class="content">
+                    <img class="logo"/>
+                </div>
+                <div class="device">
+                    <img class="frame"/>
+                    <img class="screen"/>
+                </div>
+            </div>
+            <div class="cimagine ipad">
+                <div class="content">
+                    <img class="logo"/>
                 </div>
                 <div class="device">
                     <img class="frame"/>
@@ -372,14 +435,17 @@
         padding-top: 100px;
     }
 
-    #design .info, #design .info-minor {
+    #design .content {
         width: 300px;
-        margin-top: 30px;
         text-align: left;
         color: white;
     }
 
-    #design .info {
+    #design .content.dark {
+        color: black;
+    }
+
+    #design .content .info {
         font-family: roboto-medium;
     }
 
@@ -391,6 +457,42 @@
                  Design - Specifics
     ******************************************/
 
+    #design .fabu {
+        background-image: url("../res/Slices/Design/Fabu/BG-Fabu.jpg");
+    }
+
+    #design .fabu .screen {
+        content: url("../res/Slices/Design/Fabu/Movie-Fabu.gif");
+    }
+
+    #design .fabu .logo {
+        content: url("../res/Slices/Design/Fabu/Logo-Fabu.png")
+    }
+
+    #design .sayso {
+        background-image: url("../res/Slices/Design/SaySo/BG-SaySo.jpg");
+    }
+
+    #design .sayso .screen {
+        content: url("../res/Slices/Design/SaySo/Movie-SaySo.gif");
+    }
+
+    #design .sayso .logo {
+        content: url("../res/Slices/Design/SaySo/Logo-SaySo.png")
+    }
+
+    #design .frank {
+        background-image: url("../res/Slices/Design/Frank/BG-Frank.jpg");
+    }
+
+    #design .frank .screen {
+        content: url("../res/Slices/Design/Frank/Movie-FrankApp.gif");
+    }
+
+    #design .frank .logo {
+        content: url("../res/Slices/Design/Frank/Logo-Frank.png")
+    }
+
     #design .nextdeadline {
         background-image: url("../res/Slices/Design/NextDeadline/BG-NextDeadline.jpg");
     }
@@ -401,6 +503,18 @@
 
     #design .nextdeadline .logo {
         content: url("../res/Slices/Design/NextDeadline/Logo-NextDeadline.png")
+    }
+
+    #design .zooz {
+        background-image: url("../res/Slices/Design/Zooz/BG-Zooz.jpg");
+    }
+
+    #design .zooz .screen {
+        content: url("../res/Slices/Design/Zooz/Movie-Zooz.gif");
+    }
+
+    #design .zooz .logo {
+        content: url("../res/Slices/Design/Zooz/Logo-Zooz.png")
     }
 
     #design .cimagine {

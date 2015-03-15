@@ -693,6 +693,12 @@
         galleries.on('init', function () {
             galleries.addClass('ready');
         });
+        galleries.on('beforeChange', function startGifFromBeginning(event, slick, currentSlide, nextSlide) {
+            if (currentSlide !== nextSlide) {
+                var screen = $(slick.$slides[nextSlide]).find('img.screen');
+                screen.attr('src', screen.attr('src'));
+            }
+        });
         galleries.slick({
             prevArrow: '<a class="gallery-prev" />',
             nextArrow: '<a class="gallery-next" />',

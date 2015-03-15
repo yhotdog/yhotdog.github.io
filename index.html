@@ -7,7 +7,7 @@
 <body>
 <div class="header">
     <div class="content">
-        Hi! My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
+        <a href="#intro" class="fold-link">Hi!</a> My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
         I'm an interactive designer
         doing these stuff: waking up,
         brushing my teeth, <a href="#ux" class="fold-link">UX</a>, <a
@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div class="intro">
+<div id="intro">
     <div class="info">
         <div>
             Hi! My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
@@ -308,16 +308,16 @@
         opacity: 1;
     }
 
-    .intro {
+    #intro {
         padding: 100px;
     }
 
-    .intro .info {
+    #intro .info {
         font-size: 55px;
         padding-bottom: 170px;
     }
 
-    .intro .more {
+    #intro .more {
         text-align: center;
     }
 
@@ -663,7 +663,7 @@
       href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css"/>
 
 <script type="text/javascript">
-    var intro = $('.intro');
+    var intro = $('#intro');
     var header = $('.header');
 
     function setUpScrollToFold() {

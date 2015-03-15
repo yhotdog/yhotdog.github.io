@@ -409,13 +409,13 @@
         margin-top: 35px;
     }
 
-
     #design .ipad .device {
         height: 40vw;
         width: 49.4vw;
         max-height: 600px;
         max-width: 741px;
     }
+
     #design .ipad .frame {
         background-size: contain;
         height: 100%;
@@ -672,13 +672,23 @@
 <script type="text/javascript">
     var intro = $('#intro');
     var header = $('.header');
+    var elementToScroll = $('body,html');
+
+    function getHeaderHeight() {
+        return header.outerHeight();
+    }
 
     function snapToFold(fold) {
         if (fold) {
-            $('body,html').animate({
-                scrollTop: $(fold).offset().top - header.outerHeight()
-            }, 300);
+            stopSnap();
+            elementToScroll.animate({
+                scrollTop: $(fold).offset().top - getHeaderHeight()
+            }, 500);
         }
+    }
+
+    function stopSnap() {
+        elementToScroll.stop();
     }
 
     function getDocumentScrollTop() {
@@ -686,15 +696,35 @@
     }
 
     var folds = $('.fold').toArray();
-    function findNearestFold(event) {
-        if (event.target.tagName === 'A') {
-            return;
-        }
+    function findNearestFold(hint) {
         var documentScrollTop = getDocumentScrollTop();
         var distances = folds.map(function getDistanceFromScreenTop(fold) {
-            return Math.abs($(fold).offset().top - documentScrollTop);
+            return $(fold).offset().top - documentScrollTop;
         });
-        var nearestFoldIndex = distances.indexOf(Math.min.apply(null, distances));
+        var smallestDist = distances.reduce(function (smallestDist, dist) {
+            if (smallestDist === undefined) {
+                if (hint === undefined) {
+                    return dist;
+                }
+                else if (hint === 'down') {
+                    return dist > getHeaderHeight() ? dist : undefined;
+                }
+                else if (hint === 'up') {
+                    return dist < 0 ? dist : undefined;
+                }
+                return undefined;
+            }
+            else if (hint === 'down') {
+                return dist > getHeaderHeight() && dist < smallestDist ? dist : smallestDist;
+            }
+            else if (hint === 'up') {
+                return dist < 0 && -dist < -smallestDist ? dist : smallestDist;
+            }
+            else {
+                return Math.abs(dist) < Math.abs(smallestDist) ? dist : smallestDist;
+            }
+        }, undefined);
+        var nearestFoldIndex = distances.indexOf(smallestDist);
         return folds[nearestFoldIndex];
     }
 
@@ -707,27 +737,41 @@
 
         var scrolling = false;
         var snapTimout = null;
+        $(window).on('keydown', function (event) {
+            if (event.keyCode === /* up */ 38 ||
+                    event.keyCode === /* page up */ 33) {
+                snapToFold(findNearestFold('up'));
+                event.preventDefault();
+            }
+            else if (event.keyCode === /* down */ 40 ||
+                    event.keyCode === /* page down */ 34) {
+                snapToFold(findNearestFold('down'))
+                event.preventDefault();
+            }
+        });
         $(window).on('mousedown', function () {
             scrolling = true;
         });
         $(window).on('mouseup', function (event) {
-            snapToFold(findNearestFold(event));
+            if (event.target.tagName === 'A') {
+                return;
+            }
+            snapToFold(findNearestFold());
             scrolling = false;
         });
-        $(window).on('scroll', function (event) {
-            if (!scrolling) {
-                clearTimeout(snapTimout);
-                snapTimout = setTimeout(function () {
-                    snapToFold(findNearestFold(event));
-                    snapTimout = null;
-                }, 500);
-            }
+        $(window).on('mousewheel DOMMouseScroll', function () {
+            stopSnap();
+            clearTimeout(snapTimout);
+            snapTimout = setTimeout(function () {
+                snapToFold(findNearestFold());
+                snapTimout = null;
+            }, 500);
         });
     }
 
     function updateHeaderVisibility() {
         var confidence = 1; // this confidence is good when the user clicks on the link of the first fold, and we don't want the header to disappear
-        header[getDocumentScrollTop() > intro.outerHeight() - header.outerHeight() - confidence ? 'addClass' : 'removeClass']('visible');
+        header[getDocumentScrollTop() > intro.outerHeight() - getHeaderHeight() - confidence ? 'addClass' : 'removeClass']('visible');
     }
     function setUpHeader() {
         window.onscroll = updateHeaderVisibility;

@@ -662,15 +662,13 @@
       href="//cdn.jsdelivr.net/jquery.slick/1.4.1/slick-theme.css"/>
 
 <script type="text/javascript">
-    var body = $('body');
     var intro = $('.intro');
-    var header = $('.header');
     var header = $('.header');
 
     function setUpScrollToFold() {
         $('.fold-link').click(function () {
             var href = $.attr(this, 'href');
-            body.animate({
+            $('body,html').animate({
                 scrollTop: $(href).offset().top - header.outerHeight()
             }, 500);
             return false;
@@ -679,7 +677,7 @@
 
     function updateHeaderVisibility() {
         var confidence = 1; // this confidence is good when the user clicks on the link of the first fold, and we don't want the header to disappear
-        var scrollTop = body.scrollTop();
+        var scrollTop = $(document).scrollTop();
         header[scrollTop > intro.outerHeight() - header.outerHeight() - confidence ? 'addClass' : 'removeClass']('visible');
     }
     function setUpHeader() {

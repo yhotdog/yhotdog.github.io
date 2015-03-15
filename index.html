@@ -330,10 +330,6 @@
         text-align: center;
     }
 
-    .fold:not(:last-child) {
-        margin-bottom: 45px; /* we need padding for the slick gallery's dots */
-    }
-
     /******************************************
                   Gallery Controls
     ******************************************/
@@ -381,6 +377,10 @@
 
     .slick-active button:before {
         color: #f5a623 !important;
+    }
+
+    .slick-dots {
+        bottom: 0 !important;
     }
 
     /******************************************

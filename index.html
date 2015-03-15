@@ -16,7 +16,7 @@
     </div>
 </div>
 
-<div id="intro">
+<div id="intro" class="fold">
     <div class="info">
         <div>
             Hi! My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
@@ -673,29 +673,67 @@
     var intro = $('#intro');
     var header = $('.header');
 
+    function snapToFold(fold) {
+        if (fold) {
+            $('body,html').animate({
+                scrollTop: $(fold).offset().top - header.outerHeight()
+            }, 300);
+        }
+    }
+
+    function getDocumentScrollTop() {
+        return $(document).scrollTop();
+    }
+
+    var folds = $('.fold').toArray();
+    function findNearestFold(event) {
+        if (event.target.tagName === 'A') {
+            return;
+        }
+        var documentScrollTop = getDocumentScrollTop();
+        var distances = folds.map(function getDistanceFromScreenTop(fold) {
+            return Math.abs($(fold).offset().top - documentScrollTop);
+        });
+        var nearestFoldIndex = distances.indexOf(Math.min.apply(null, distances));
+        return folds[nearestFoldIndex];
+    }
+
     function setUpScrollToFold() {
         $('.fold-link').click(function () {
             var href = $.attr(this, 'href');
-            $('body,html').animate({
-                scrollTop: $(href).offset().top - header.outerHeight()
-            }, 500);
+            snapToFold(href);
             return false;
+        });
+
+        var scrolling = false;
+        var snapTimout = null;
+        $(window).on('mousedown', function () {
+            scrolling = true;
+        });
+        $(window).on('mouseup', function (event) {
+            snapToFold(findNearestFold(event));
+            scrolling = false;
+        });
+        $(window).on('scroll', function (event) {
+            if (!scrolling) {
+                clearTimeout(snapTimout);
+                snapTimout = setTimeout(function () {
+                    snapToFold(findNearestFold(event));
+                    snapTimout = null;
+                }, 500);
+            }
         });
     }
 
     function updateHeaderVisibility() {
         var confidence = 1; // this confidence is good when the user clicks on the link of the first fold, and we don't want the header to disappear
-        var scrollTop = $(document).scrollTop();
-        header[scrollTop > intro.outerHeight() - header.outerHeight() - confidence ? 'addClass' : 'removeClass']('visible');
+        header[getDocumentScrollTop() > intro.outerHeight() - header.outerHeight() - confidence ? 'addClass' : 'removeClass']('visible');
     }
     function setUpHeader() {
         window.onscroll = updateHeaderVisibility;
     }
 
-    $(document).ready(function () {
-        setUpScrollToFold();
-        setUpHeader();
-        updateHeaderVisibility();
+    function setUpGalleries() {
         var galleries = $('.gallery');
         galleries.on('init', function () {
             galleries.addClass('ready');
@@ -715,6 +753,13 @@
 //            mobileFirst: true,
 //            swipeToSlide: true
         });
+    }
+
+    $(document).ready(function () {
+        setUpScrollToFold();
+        setUpHeader();
+        updateHeaderVisibility();
+        setUpGalleries();
     });
 </script>
 </body>

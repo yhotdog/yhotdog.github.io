@@ -7,7 +7,9 @@
 <body>
 <div class="header">
     <div class="content">
-        <a href="#intro" class="fold-link">Hi!</a> My name is <a href="#liat" class="fold-link">Liat Zeldes</a>.
+        <a href="#intro" class="fold-link">Hi!</a> My name is <a href="#liat"
+                                                                 class="fold-link">Liat
+        Zeldes</a>.
         I'm an interactive designer
         doing these stuff: waking up,
         brushing my teeth, <a href="#ux" class="fold-link">UX</a>, <a
@@ -73,7 +75,8 @@
                 </div>
                 <div class="device">
                     <img class="frame" src="res/Slices/iPhone.png"/>
-                    <img class="screen" src="res/Slices/Design/Fabu/Movie-Fabu.gif"/>
+                    <img class="screen"
+                         src="res/Slices/Design/Fabu/Movie-Fabu.gif"/>
                 </div>
             </div>
             <div class="sayso iphone">
@@ -89,7 +92,8 @@
                 </div>
                 <div class="device">
                     <img class="frame" src="res/Slices/iPhone.png"/>
-                    <img class="screen" src="res/Slices/Design/SaySo/Movie-SaySo.gif"/>
+                    <img class="screen"
+                         src="res/Slices/Design/SaySo/Movie-SaySo.gif"/>
                 </div>
             </div>
             <div class="frank iphone">
@@ -106,7 +110,8 @@
                 </div>
                 <div class="device">
                     <img class="frame" src="res/Slices/iPhone.png"/>
-                    <img class="screen" src="res/Slices/Design/Frank/Movie-FrankApp.gif"/>
+                    <img class="screen"
+                         src="res/Slices/Design/Frank/Movie-FrankApp.gif"/>
                 </div>
             </div>
             <div class="nextdeadline iphone">
@@ -128,7 +133,8 @@
                 </div>
                 <div class="device">
                     <img class="frame" src="res/Slices/iPhone.png"/>
-                    <img class="screen" src="res/Slices/Design/NextDeadline/Movie-NextDeadline.gif"/>
+                    <img class="screen"
+                         src="res/Slices/Design/NextDeadline/Movie-NextDeadline.gif"/>
                 </div>
             </div>
             <div class="zooz ipad">
@@ -137,7 +143,8 @@
                 </div>
                 <div class="device">
                     <img class="frame" src="res/Slices/iPad.png"/>
-                    <img class="screen" src="res/Slices/Design/Zooz/Movie-Zooz.gif"/>
+                    <img class="screen"
+                         src="res/Slices/Design/Zooz/Movie-Zooz.gif"/>
                 </div>
             </div>
             <div class="cimagine ipad">
@@ -146,7 +153,8 @@
                 </div>
                 <div class="device">
                     <img class="frame" src="res/Slices/iPad.png"/>
-                    <img class="screen" src="res/Slices/Design/Cimagine/Movie-Cimagine.gif"/>
+                    <img class="screen"
+                         src="res/Slices/Design/Cimagine/Movie-Cimagine.gif"/>
                 </div>
             </div>
         </div>
@@ -155,10 +163,14 @@
     <div id="consultation" class="fold">
         <div class="gallery">
             <div>
-                tip 1
+                <div class="content">
+                    tip 1
+                </div>
             </div>
             <div>
-                tip 2
+                <div class="content">
+                    tip 2
+                </div>
             </div>
         </div>
     </div>
@@ -278,12 +290,12 @@
     .header {
         position: fixed;
         top: 0;
+        line-height: 50px;
         background-color: white;
         width: 100%;
         z-index: 10000;
         visibility: hidden;
         text-align: center;
-        padding: 10px;
         box-shadow: 0;
         transition: box-shadow;
         transition-duration: 0.5s;
@@ -321,13 +333,9 @@
                        Folds
     ******************************************/
 
-    .fold, .fold .slick-track {
-        height: 714px;
-    }
-
     .fold {
-        height: 714px;
-        text-align: center;
+        height: calc(100vh - 50px); /* minus header's height */
+        min-height: 666px;
     }
 
     /******************************************
@@ -336,6 +344,10 @@
 
     .gallery:not(.ready) {
         visibility: hidden;
+    }
+
+    .gallery, .slick-list, .slick-track, .slick-slide {
+        height: 100%;
     }
 
     .gallery-prev, .gallery-next {
@@ -402,6 +414,10 @@
     /******************************************
                    Design - Common
     ******************************************/
+
+    #design {
+        text-align: center;
+    }
 
     #design .device, #design .content {
         position: relative;
@@ -472,6 +488,7 @@
 
     #design .slick-slide {
         background-position: center;
+        background-size: auto 100%;
     }
 
     /******************************************
@@ -509,7 +526,7 @@
     #consultation {
         color: white;
         font-family: roboto-medium;
-        font-size: 30px;
+        text-align: center;
     }
 
     #consultation .slick-slide:nth-of-type(2n) {
@@ -520,8 +537,10 @@
         background-color: #4FC798;
     }
 
-    #consultation .slick-track > div {
-        line-height: 714px;
+    #consultation .slick-track .content {
+        height: 100%;
+        transform: translateY(calc(50% - 30px / 2)); /* minus font-size */
+        font-size: 30px;
     }
 
     /******************************************
@@ -544,7 +563,7 @@
 
     #liat .content {
         height: 100%;;
-        width: calc(300px - 50px); /* minus padding */
+        width: calc(300px - 2 * 25px); /* minus padding */
         text-align: left;
         background-color: #592c0c;
         padding: 0 25px;

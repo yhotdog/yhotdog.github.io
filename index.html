@@ -744,6 +744,12 @@
             }
         }, undefined);
         var nearestFoldIndex = distances.indexOf(smallestDist);
+        if (nearestFoldIndex === 1 && smallestDist > 200 && hint !== 'down') {
+            // prevent auto-snapping if the user is at the start of the site,
+            // and hasn't scrolled enough in order to start the auto-snapping
+            // experience (unless he explicitly pressed the down key)
+            return undefined;
+        }
         return folds[nearestFoldIndex];
     }
 
@@ -757,14 +763,18 @@
         var scrolling = false;
         var snapTimout = null;
         $(window).on('keydown', function (event) {
+            var hint;
             if (event.keyCode === /* up */ 38 ||
                     event.keyCode === /* page up */ 33) {
-                snapToFold(findNearestFold('up'));
-                event.preventDefault();
+                hint = 'up';
             }
             else if (event.keyCode === /* down */ 40 ||
                     event.keyCode === /* page down */ 34) {
-                snapToFold(findNearestFold('down'))
+                hint = 'down';
+            }
+            if (hint !== undefined) {
+                snapToFold(findNearestFold(hint));
+                clearTimeout(snapTimout);
                 event.preventDefault();
             }
         });

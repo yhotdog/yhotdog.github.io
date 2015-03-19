@@ -777,6 +777,17 @@
                 clearTimeout(snapTimout);
                 event.preventDefault();
             }
+
+            var galleryNavigation = {
+                37: 'prev',
+                39: 'next'
+            }[event.keyCode];
+            if (galleryNavigation !== undefined) {
+                var gallery = $(findNearestFold()).find('.gallery');
+                if (gallery.length > 0) {
+                    gallery.slick(galleryNavigation);
+                }
+            }
         });
         $(window).on('mousedown', function () {
             scrolling = true;

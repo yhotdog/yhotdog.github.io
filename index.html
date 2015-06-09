@@ -120,14 +120,19 @@
 
                     <p class="info">
                         All deadlines are important.
+                        <br />
                         But which one is important now?
+                        <br />
                         Put all your deadlines in one place
+                        <br />
                         and start looking at the big picture!
                     </p>
 
                     <p class="info-minor">
                         This tool will help you manage your projects and
+                        <br />
                         give you an easy way to understand what's more
+                        <br />
                         important now.
                     </p>
                 </div>
@@ -214,7 +219,7 @@
         </div>
         <div class="liat-img-container">
             <img class="liat-img" src="res/Slices/liat.jpg"/>
-            <a href="http://www.linkedin.com/in/yoelzeldes" class="about yoel">
+            <a href="http://www.linkedin.com/in/yoelzeldes" class="about yoel" target="_blank">
                 <div class="tooltip">
                     Hi!
                     <br/>
@@ -228,7 +233,7 @@
                     ME!
                 </div>
             </a>
-            <a href="http://flutedoc.co.il" class="about elad">
+            <a href="http://flutedoc.co.il" class="about elad" target="_blank">
                 <div class="tooltip">
                     Hi I'm Elad
                     <br/>
@@ -395,6 +400,14 @@
         bottom: 0 !important;
     }
 
+    .gallery .slick-dots button:before {
+        font-size: 10px;
+    }
+
+    .gallery .slick-dots li {
+        margin: 2px;
+    }
+
     /******************************************
                         UX
     ******************************************/
@@ -422,7 +435,10 @@
     #design .device, #design .content {
         position: relative;
         display: inline-block;
-        margin-top: 35px;
+    }
+
+    #design .slick-slide {
+        padding-top: 7vh;
     }
 
     #design .ipad .device {
@@ -467,10 +483,20 @@
 
     #design .content {
         vertical-align: top;
-        margin-right: 100px;
+        margin-right: calc(20vw - 100px);
         padding-top: 100px;
         width: 300px;
         text-align: left;
+        color: white;
+    }
+
+    #design .content a {
+        font-family: roboto-light;
+        font-style: italic;
+        text-decoration: underline;
+    }
+
+    #design .content:not(.dark) a:not(:hover) {
         color: white;
     }
 
@@ -505,6 +531,14 @@
 
     #design .frank {
         background-image: url("res/Slices/Design/Frank/BG-Frank.jpg");
+    }
+
+    #design .frank .content {
+        margin-top: -30px;
+    }
+
+    #design .frank .content img {
+        margin-bottom: -10px;
     }
 
     #design .nextdeadline {
@@ -598,6 +632,7 @@
 
     #liat .liat-img-container .about {
         position: absolute;
+        text-align: center;
     }
 
     #liat .liat-img-container .about:not([href]) {
@@ -726,7 +761,7 @@
                     return dist;
                 }
                 else if (hint === 'down') {
-                    return dist > getHeaderHeight() ? dist : undefined;
+                    return dist > getHeaderHeight() + 10 ? dist : undefined; // plus 10 because it it doesn't work when the screen is un-magnified
                 }
                 else if (hint === 'up') {
                     return dist < 0 ? dist : undefined;
@@ -744,10 +779,8 @@
             }
         }, undefined);
         var nearestFoldIndex = distances.indexOf(smallestDist);
-        if (nearestFoldIndex === 1 && smallestDist > 200 && hint !== 'down') {
-            // prevent auto-snapping if the user is at the start of the site,
-            // and hasn't scrolled enough in order to start the auto-snapping
-            // experience (unless he explicitly pressed the down key)
+        if (nearestFoldIndex === 0 && hint !== 'up') {
+            // prevent auto-snap to the first fold (unless the user explicitly wanted so - by pressing the up arrow)
             return undefined;
         }
         return folds[nearestFoldIndex];

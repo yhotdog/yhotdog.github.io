@@ -141,6 +141,14 @@
                         give you an easy way to understand what's more
                         important now.
                     </p>
+
+                    <p class="info-minor">
+                        This app was featured on the App Store in 86 different countries.
+                    </p>
+
+                    <a href="https://itunes.apple.com/il/app/next-deadline/id892281467">
+                        <img class="badge" src="res/appStoreBadge.svg" />
+                    </a>
                 </div>
                 <div class="device">
                     <img class="frame" src="res/Slices/iPhone.png"/>
@@ -185,7 +193,7 @@
                 </div>
             </div>
             <div class="cimagine ipad">
-                <div class="content">
+                <div class="content dark">
                     <img src="res/Slices/Design/Cimagine/Logo-Cimagine.png"/>
 
                     <p class="info">
@@ -572,6 +580,10 @@
         font-family: roboto-medium;
     }
 
+    #design .content ul {
+        padding-left: 17px;
+    }
+
     #design .info-minor {
         font-size: 15px;
     }
@@ -607,6 +619,10 @@
 
     #design .nextdeadline {
         background-image: url("res/Slices/Design/NextDeadline/BG-NextDeadline.jpg");
+    }
+
+    #design .nextdeadline .badge {
+        display: inline;
     }
 
     #design .zooz {
@@ -703,7 +719,8 @@
         cursor: default;
     }
 
-    #liat .liat-img-container .about:not([href]):active {
+    #liat .liat-img-container .about:not([href]):active,
+    #liat .liat-img-container .about:not(:hover) {
         color: #f5a623;
     }
 
@@ -730,7 +747,6 @@
 
     #liat .liat-img-container .tooltip {
         transition: opacity;
-        background-color: rgba(255, 255, 255, 0.3);
         border-radius: 10px;
         padding: 10px;
         transition-duration: 0.5s;

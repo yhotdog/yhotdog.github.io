@@ -61,7 +61,7 @@
         <div class="gallery">
             <div class="frank iphone">
                 <div class="content">
-                    <img src="res/Slices/Design/Frank/Logo-Frank.png"/>
+                    <img data-src="res/Slices/Design/Frank/Logo-Frank.png"/>
 
                     <p class="info">
                         Frank is a fun, anonymous mobile
@@ -92,14 +92,14 @@
                     </div>
                 </div>
                 <div class="device">
-                    <img class="frame" src="res/Slices/iPhone.png"/>
+                    <img class="frame" data-src="res/Slices/iPhone.png"/>
                     <img class="screen"
-                         src="res/Slices/Design/Frank/Movie-FrankApp.gif"/>
+                         data-src="res/Slices/Design/Frank/Movie-FrankApp.gif"/>
                 </div>
             </div>
             <div class="nextdeadline iphone">
                 <div class="content">
-                    <img src="res/Slices/Design/NextDeadline/Logo-NextDeadline.png"/>
+                    <img data-src="res/Slices/Design/NextDeadline/Logo-NextDeadline.png"/>
 
                     <p class="info">
                         All deadlines are important.
@@ -119,18 +119,18 @@
                     </p>
 
                     <a href="https://itunes.apple.com/il/app/next-deadline/id892281467">
-                        <img class="badge" src="res/appStoreBadge.svg" />
+                        <img class="badge" data-src="res/appStoreBadge.svg" />
                     </a>
                 </div>
                 <div class="device">
-                    <img class="frame" src="res/Slices/iPhone.png"/>
+                    <img class="frame" data-src="res/Slices/iPhone.png"/>
                     <img class="screen"
-                         src="res/Slices/Design/NextDeadline/Movie-NextDeadline.gif"/>
+                         data-src="res/Slices/Design/NextDeadline/Movie-NextDeadline.gif"/>
                 </div>
             </div>
             <div class="zooz ipad">
                 <div class="content">
-                    <img src="res/Slices/Design/Zooz/Logo-Zooz.png"/>
+                    <img data-src="res/Slices/Design/Zooz/Logo-Zooz.png"/>
 
                     <p class="info">
                         Zooz is a to-do list that makes it easy
@@ -159,14 +159,14 @@
                     </div>
                 </div>
                 <div class="device">
-                    <img class="frame" src="res/Slices/iPad.png"/>
+                    <img class="frame" data-src="res/Slices/iPad.png"/>
                     <img class="screen"
-                         src="res/Slices/Design/Zooz/Movie-Zooz.gif"/>
+                         data-src="res/Slices/Design/Zooz/Movie-Zooz.gif"/>
                 </div>
             </div>
             <div class="cimagine ipad">
                 <div class="content dark">
-                    <img src="res/Slices/Design/Cimagine/Logo-Cimagine.png"/>
+                    <img data-src="res/Slices/Design/Cimagine/Logo-Cimagine.png"/>
 
                     <p class="info">
                         Cimagine enables consumers to use
@@ -181,14 +181,14 @@
                     </p>
                 </div>
                 <div class="device">
-                    <img class="frame" src="res/Slices/iPad.png"/>
+                    <img class="frame" data-src="res/Slices/iPad.png"/>
                     <img class="screen"
-                         src="res/Slices/Design/Cimagine/Movie-Cimagine.gif"/>
+                         data-src="res/Slices/Design/Cimagine/Movie-Cimagine.gif"/>
                 </div>
             </div>
             <div class="sayso iphone">
                 <div class="content dark">
-                    <img src="res/Slices/Design/SaySo/Logo-SaySo.png"/>
+                    <img data-src="res/Slices/Design/SaySo/Logo-SaySo.png"/>
 
                     <p class="info">
                         Make decisions based on your
@@ -204,14 +204,14 @@
                     </p>
                 </div>
                 <div class="device">
-                    <img class="frame" src="res/Slices/iPhone.png"/>
+                    <img class="frame" data-src="res/Slices/iPhone.png"/>
                     <img class="screen"
-                         src="res/Slices/Design/SaySo/Movie-SaySo.gif"/>
+                         data-src="res/Slices/Design/SaySo/Movie-SaySo.gif"/>
                 </div>
             </div>
             <div class="fabu iphone">
                 <div class="content">
-                    <img src="res/Slices/Design/Fabu/Logo-Fabu.png"/>
+                    <img data-src="res/Slices/Design/Fabu/Logo-Fabu.png"/>
 
                     <p class="info">
                         This app helps you decide which outfit
@@ -221,9 +221,9 @@
                     </p>
                 </div>
                 <div class="device">
-                    <img class="frame" src="res/Slices/iPhone.png"/>
+                    <img class="frame" data-src="res/Slices/iPhone.png"/>
                     <img class="screen"
-                         src="res/Slices/Design/Fabu/Movie-Fabu.gif"/>
+                         data-src="res/Slices/Design/Fabu/Movie-Fabu.gif"/>
                 </div>
             </div>
         </div>
@@ -291,17 +291,17 @@
             </p>
 
             <a href="https://www.facebook.com/liat.zeldes">
-                <img src="res/Slices/Social/Social-Facebook.png"/>
+                <img data-src="res/Slices/Social/Social-Facebook.png"/>
             </a>
             <a href="https://www.linkedin.com/in/liatzeldes">
-                <img src="res/Slices/Social/Social-Linkedin.png"/>
+                <img data-src="res/Slices/Social/Social-Linkedin.png"/>
             </a>
             <a href="https://instagram.com/_LIAT/">
-                <img src="res/Slices/Social/Social-Instagram.png"/>
+                <img data-src="res/Slices/Social/Social-Instagram.png"/>
             </a>
         </div>
         <div class="liat-img-container">
-            <img class="liat-img" src="res/Slices/liat.jpg"/>
+            <img class="liat-img" data-src="res/Slices/liat.jpg"/>
             <a href="http://www.linkedin.com/in/yoelzeldes" class="about yoel" target="_blank">
                 <div class="tooltip">
                     Hi!
@@ -995,7 +995,20 @@
         ga('send', 'pageview');
     }
 
+    function loadImages() {
+        var images = document.getElementsByTagName('img');
+        var dataSrcs = [].map.call(images, function getDataSrc(image) {
+            return image.getAttribute('data-src');
+        });
+        [].forEach.call(images, function setSrc(image, i) {
+            if (dataSrcs[i] !== undefined) {
+                image.setAttribute('src', dataSrcs[i]);
+            }
+        })
+    }
+
     $(document).ready(function () {
+        loadImages();
         setUpScrollToFold();
         setUpHeader();
         updateHeaderVisibility();

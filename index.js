@@ -13,6 +13,9 @@ function snapToFold(fold) {
         elementToScroll.animate({
             scrollTop: $(fold).offset().top - getHeaderHeight()
         }, 500);
+        var foldLinkSelector = '.header a.fold-link';
+		$(foldLinkSelector).removeClass('selected-link')
+		$(foldLinkSelector + '[href=#' + fold.id + ']').addClass('selected-link')
     }
 }
 
@@ -63,7 +66,7 @@ function findNearestFold(hint) {
 function setUpScrollToFold() {
     $('.fold-link').click(function () {
         var href = $.attr(this, 'href');
-        snapToFold(href);
+        snapToFold($(href)[0]);
         return false;
     });
 
